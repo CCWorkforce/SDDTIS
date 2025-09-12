@@ -27,5 +27,12 @@ else
     echo "uv is already installed."
 fi
 
-echo "Running uvx --from git+https://github.com/github/spec-kit.git..."
-uvx --from git+https://github.com/github/spec-kit.git
+if [ "$1" = "--" ]; then
+    shift
+    echo "Running uvx --from git+https://github.com/github/spec-kit.git $*..."
+    uvx --from git+https://github.com/github/spec-kit.git "$@"
+else
+    echo "Usage: $0 -- <command> [args...]"
+    echo "Example: $0 -- specify init myproject"
+    exit 1
+fi

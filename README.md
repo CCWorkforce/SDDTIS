@@ -4,6 +4,16 @@
 
 An automated installation script for [GitHub Spec Kit](https://github.com/github/spec-kit) that handles `uv` installation and runs spec-kit commands seamlessly.
 
+## Quick Start
+
+Download and run the installation script:
+
+```bash
+curl -o install-specify-kit.sh https://raw.githubusercontent.com/CCWorkforce/SDDTIS/main/install-specify-kit.sh
+chmod +x install-specify-kit.sh
+./install-specify-kit.sh -- specify init myproject
+```
+
 ## Usage
 
 The script automatically checks for and installs `uv` if needed, then executes spec-kit commands:

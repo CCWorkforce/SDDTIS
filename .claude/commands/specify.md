@@ -18,29 +18,106 @@ Given the feature description provided as an argument, execute this enhanced wor
    - Identify potential technical challenges and dependencies
    - Generate a comprehensive understanding of the feature scope
    - Determine what technologies, frameworks, or libraries might be needed
+   - **CRITICAL**: Identify any ambiguous requirements or missing information
+   - Flag areas that need business or technical clarification
+   - Note conflicting requirements or unclear acceptance criteria
 
-## Phase 3: Research Latest Best Practices
+## Phase 3: Clarification and Requirements Validation
 
-4. **Research Current Technologies**: Using `mcp__tavily-mcp__tavily-search` tool:
+4. **Identify Clarification Needs**: Create a structured list of all unclear points:
+   - **Business Requirements**: Ambiguous user stories or acceptance criteria
+   - **Technical Decisions**: Architecture choices that need stakeholder input
+   - **Integration Points**: Unclear external system dependencies
+   - **Performance Requirements**: Missing benchmarks or SLAs
+   - **Security Requirements**: Undefined compliance or security needs
+   - **Data Requirements**: Unclear data formats, retention, or privacy needs
+   - **User Experience**: Ambiguous UI/UX requirements
+   - **Deployment**: Unclear deployment environments or constraints
+
+5. **Interactive Clarification Process**:
+   - **Create Clarification Document** (`SPEC_FILE.clarifications.md` and `.specify/memory/clarifications-log.json`):
+     ```markdown
+     # NEEDS CLARIFICATION for [Feature Name]
+
+     ## Critical Clarifications Required
+
+     ### CL001: [Topic] - [Brief Description]
+     **Context**: [Why this needs clarification]
+     **Question**: [Specific question for the user]
+     **Options** (if applicable):
+       - Option A: [Description with pros/cons]
+       - Option B: [Description with pros/cons]
+     **Impact**: [How this affects implementation]
+     **Default Assumption**: [What we'll assume if not clarified]
+
+     ### CL002: [Next clarification...]
+     ```
+
+   - **Present Each Clarification**: One by one, ask the user:
+     - Display the context and question clearly
+     - Provide options when there are clear alternatives
+     - Explain the impact of the decision
+     - Note what will be assumed if not clarified
+     - Wait for user response before proceeding to next
+
+   - **Track Responses**: Update the clarification document with:
+     - User's answer
+     - Timestamp of clarification
+     - Any follow-up clarifications needed
+     - Impact on other requirements
+
+   - **Persist Clarifications**: Save to multiple locations for cross-command access:
+     - Update `SPEC_FILE.clarifications.md` with formatted responses
+     - Append to `.specify/memory/clarifications-log.json`:
+       ```json
+       {
+         "feature": "[Feature Name]",
+         "branch": "[Branch Name]",
+         "clarifications": [
+           {
+             "id": "CL001",
+             "category": "Business Requirements",
+             "question": "...",
+             "answer": "...",
+             "timestamp": "2025-01-13T10:30:00Z",
+             "answered_by": "user",
+             "impact": "..."
+           }
+         ]
+       }
+       ```
+     - This JSON log ensures clarifications are available to subsequent commands
+
+6. **Validation Loop**:
+   - After collecting all clarifications, use `mcp__sequential-thinking__sequentialthinking` to:
+     - Re-analyze requirements with clarifications
+     - Check for new conflicts or ambiguities
+     - Identify any follow-up questions
+   - If new clarifications needed, repeat the process
+   - Continue until all requirements are unambiguous
+
+## Phase 4: Research Latest Best Practices
+
+7. **Research Current Technologies**: Using `mcp__tavily-mcp__tavily-search` tool:
    - Search for latest best practices related to the feature type (e.g., "2025 best practices for [feature type]")
    - Find recent breaking changes in relevant frameworks/libraries
    - Identify modern implementation patterns and architectures
    - Look for security considerations and performance optimizations
    - Research similar features in popular applications for inspiration
 
-## Phase 4: Documentation Retrieval
+## Phase 5: Documentation Retrieval
 
-5. **Fetch Relevant Documentation**: For each identified technology/library:
+8. **Fetch Relevant Documentation**: For each identified technology/library:
    - Use `mcp__context7__resolve-library-id` to find the correct library ID
    - Use `mcp__context7__get-library-docs` to retrieve up-to-date documentation
    - Extract relevant code examples and API references
    - Gather version-specific information and compatibility notes
 
-## Phase 5: Specification Generation
+## Phase 6: Specification Generation
 
-6. **Load Template**: Read `.specify/templates/spec-template.md` to understand required sections and structure.
+9. **Load Template**: Read `.specify/templates/spec-template.md` to understand required sections and structure.
 
-7. **Generate Enhanced Specification**: Create a comprehensive specification that includes:
+10. **Generate Enhanced Specification**: Create a comprehensive specification that includes:
    - **Executive Summary**: Clear, concise description of the feature
    - **Technical Architecture**: Based on researched best practices
    - **Implementation Plan**: Detailed steps from sequential thinking analysis
@@ -55,31 +132,34 @@ Given the feature description provided as an argument, execute this enhanced wor
    - **Dependencies**: External libraries, APIs, or services required
    - **Acceptance Criteria**: Clear, measurable success metrics
 
-## Phase 6: Quality Assurance
+## Phase 7: Quality Assurance
 
-8. **Validate Specification**:
+11. **Validate Specification**:
    - Ensure all template sections are filled with meaningful content
    - Check that technical details are current (using 2025 best practices)
    - Verify that code examples are syntactically correct
    - Confirm that all referenced libraries/frameworks are compatible
    - Validate that the specification is actionable and unambiguous
+   - **IMPORTANT**: Verify all clarifications have been incorporated
 
-9. **Refine Using Sequential Thinking**: Use `mcp__sequential-thinking__sequentialthinking` again to:
+12. **Refine Using Sequential Thinking**: Use `mcp__sequential-thinking__sequentialthinking` again to:
    - Review the generated specification for completeness
    - Identify any gaps or inconsistencies
    - Suggest improvements or additional considerations
    - Ensure the specification aligns with the original feature description
+   - Confirm all clarified requirements are properly documented
 
-## Phase 7: Final Output
+## Phase 8: Final Output
 
-10. **Write Specification**: Save the enhanced specification to SPEC_FILE with:
+13. **Write Specification**: Save the enhanced specification to SPEC_FILE with:
     - Proper markdown formatting
     - Clear section headers
     - Code blocks with syntax highlighting
     - Links to relevant documentation
     - Diagrams or flowcharts if applicable (as markdown/mermaid)
+    - **Include Clarifications Section**: Document all clarifications received
 
-11. **Generate Summary Report**: Provide the user with:
+14. **Generate Summary Report**: Provide the user with:
     - Branch name and spec file path
     - Key technologies and libraries identified
     - Estimated complexity and timeline
@@ -93,6 +173,12 @@ Given the feature description provided as an argument, execute this enhanced wor
 - If the branch creation script fails, provide clear error messages and recovery steps
 - If research yields conflicting information, present options with pros/cons
 - If documentation is unavailable for a library, suggest alternatives
+- **CRITICAL**: If clarifications are needed but user doesn't respond:
+  * Document the assumption being made
+  * Mark it as "ASSUMED" in the specification
+  * Create a risk item for review
+  * Continue with the most conservative/safe option
+- If clarifications reveal fundamental issues, suggest re-scoping the feature
 
 ## Notes
 

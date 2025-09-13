@@ -75,6 +75,24 @@ The script will automatically install `uv` if not present. Supported platforms:
    - Updates shell configuration to ensure PATH is updated
 3. **Runs spec-kit command** - Executes `uvx --from git+https://github.com/github/spec-kit.git` with your specified arguments
 
+## Cleanup Script
+
+To remove Specify Kit generated files and directories, use the cleanup script:
+
+```bash
+./clean-up-specify-kit.sh
+```
+
+This script will:
+- Delete `.claude/commands/plan.md`, `specify.md`, and `tasks.md` files
+- Remove the `.specify` directory and all its contents
+- Provide colored output showing the status of each deletion
+
+The cleanup is useful when:
+- You want to reset your project's Specify Kit configuration
+- You need to start fresh with a new specification
+- You're done with spec-driven development and want to clean up
+
 ## About Spec-Driven Development
 
 Spec Kit enables **Spec-Driven Development** - a methodology where specifications become executable, directly generating working implementations. Learn more at the [GitHub Spec Kit repository](https://github.com/github/spec-kit).

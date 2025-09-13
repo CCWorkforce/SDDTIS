@@ -2,30 +2,68 @@
 
 🌾 🥳 🌋 🏰 🌅 🌕 Spec-Driven Development Toolkit Installation Script 🌖 🌔 🌈 🏆 👑
 
-An automated installation script for [GitHub Spec Kit](https://github.com/github/spec-kit) that handles `uv` installation and runs spec-kit commands seamlessly.
+An automated installation script for [GitHub Spec Kit](https://github.com/github/spec-kit) that handles `uv` installation and runs spec-kit commands seamlessly, plus enhanced Claude Code commands with MCP server integrations.
 
 ## Quick Start
 
-Download and run the installation script:
+### 1. Download the Main Installation Script
 
 ```bash
 curl -o install-specify-kit.sh https://raw.githubusercontent.com/CCWorkforce/SDDTIS/main/install-specify-kit.sh
-```
-
-```bash
 chmod +x install-specify-kit.sh
+./install-specify-kit.sh -- specify init myproject
 ```
 
+### 2. Download Additional Tools
+
+#### Enhanced Claude Code Commands Downloader
+
+Download enhanced Claude Code commands with MCP server integrations:
+
 ```bash
-./install-specify-kit.sh -- specify init myproject
+curl -o download-cc-command.sh https://raw.githubusercontent.com/CCWorkforce/SDDTIS/main/download-cc-command.sh
+chmod +x download-cc-command.sh
+
+# Download all enhanced commands
+./download-cc-command.sh --all
+
+# Or download specific commands
+./download-cc-command.sh --command specify
+./download-cc-command.sh --command plan
+./download-cc-command.sh --command tasks
+```
+
+#### Cleanup Script
+
+Download the cleanup script to remove Specify Kit files when needed:
+
+```bash
+curl -o clean-up-specify-kit.sh https://raw.githubusercontent.com/CCWorkforce/SDDTIS/main/clean-up-specify-kit.sh
+chmod +x clean-up-specify-kit.sh
+
+# Run cleanup when needed
+./clean-up-specify-kit.sh
 ```
 
 ## Usage
 
-The script automatically checks for and installs `uv` if needed, then executes spec-kit commands:
+### Spec Kit Installation
+
+The main script automatically checks for and installs `uv` if needed, then executes spec-kit commands:
 
 ```bash
 ./install-specify-kit.sh -- <spec-kit-command> [arguments...]
+```
+
+### Enhanced Commands Usage
+
+After downloading with `download-cc-command.sh`, use in Claude Code:
+
+```bash
+# In Claude Code, use the @ prefix
+@specify "Create a user authentication system"
+@plan "Focus on security and scalability"
+@tasks "Optimize for team development"
 ```
 
 ## Examples
@@ -87,23 +125,38 @@ The script will automatically install `uv` if not present. Supported platforms:
    - Updates shell configuration to ensure PATH is updated
 3. **Runs spec-kit command** - Executes `uvx --from git+https://github.com/github/spec-kit.git` with your specified arguments
 
+## Enhanced Claude Code Commands
+
+The enhanced commands provide intelligent features through MCP server integrations:
+
+- **`specify`**: Creates feature specifications with clarifications and research
+- **`plan`**: Generates implementation plans with technical decision points
+- **`tasks`**: Creates detailed task lists with dependencies and estimates
+
+### Features
+- Sequential thinking for complex problem breakdown
+- Web research for latest best practices (2025)
+- Documentation retrieval from official sources
+- Interactive clarification process
+- Persistent decision tracking
+
+Use `./download-cc-command.sh --list` to see all available commands.
+
+For detailed information, see [ADVANCED-USAGE.md](ADVANCED-USAGE.md).
+
 ## Cleanup Script
 
-To remove Specify Kit generated files and directories, use the cleanup script:
+The cleanup script removes Specify Kit generated files and directories:
 
-```bash
-./clean-up-specify-kit.sh
-```
+### What it does:
+- Deletes `.claude/commands/plan.md`, `specify.md`, and `tasks.md` files
+- Removes the `.specify` directory and all its contents
+- Provides colored output showing the status of each deletion
 
-This script will:
-- Delete `.claude/commands/plan.md`, `specify.md`, and `tasks.md` files
-- Remove the `.specify` directory and all its contents
-- Provide colored output showing the status of each deletion
-
-The cleanup is useful when:
-- You want to reset your project's Specify Kit configuration
-- You need to start fresh with a new specification
-- You're done with spec-driven development and want to clean up
+### When to use:
+- Reset your project's Specify Kit configuration
+- Start fresh with a new specification
+- Clean up after spec-driven development is complete
 
 ## About Spec-Driven Development
 

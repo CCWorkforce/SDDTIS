@@ -10,7 +10,13 @@ Download and run the installation script:
 
 ```bash
 curl -o install-specify-kit.sh https://raw.githubusercontent.com/CCWorkforce/SDDTIS/main/install-specify-kit.sh
+```
+
+```bash
 chmod +x install-specify-kit.sh
+```
+
+```bash
 ./install-specify-kit.sh -- specify init myproject
 ```
 
@@ -40,7 +46,13 @@ The script automatically checks for and installs `uv` if needed, then executes s
 
 ```bash
 ./install-specify-kit.sh -- specify init myproject --ai claude
+```
+
+```bash
 ./install-specify-kit.sh -- specify init myproject --ai gemini
+```
+
+```bash
 ./install-specify-kit.sh -- specify init myproject --ai copilot
 ```
 

@@ -35,7 +35,7 @@ Given the context provided as an argument, execute this enhanced workflow:
 ## Phase 3: Modern Development Practices Research
 
 4. **Research Current Best Practices**: Using `mcp__tavily-mcp__tavily-search`:
-   - Search "2025 agile development task breakdown best practices"
+   - Search "latest agile development task breakdown best practices"
    - Research "modern TDD workflow task organization"
    - Find "continuous integration task dependencies patterns"
    - Investigate "microservices development task sequencing"
@@ -44,7 +44,7 @@ Given the context provided as an argument, execute this enhanced workflow:
    - Find "development velocity optimization strategies"
 
 5. **Technology-Specific Workflow Research**: Using `mcp__tavily-mcp__tavily-search`:
-   - Search "[framework] development workflow best practices 2025"
+   - Search "[framework] development workflow best practices latest"
    - Research testing patterns for identified technologies
    - Find CI/CD task patterns for the tech stack
    - Investigate deployment task sequences

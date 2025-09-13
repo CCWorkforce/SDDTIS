@@ -131,7 +131,7 @@ Given the implementation details provided as an argument, execute this enhanced 
 ## Phase 4: Architecture Research and Best Practices
 
 9. **Research Modern Architecture Patterns**: Using `mcp__tavily-mcp__tavily-search`:
-   - Search for "2025 [feature type] architecture patterns best practices"
+   - Search for "latest [feature type] architecture patterns best practices"
    - Research microservices vs monolithic considerations for the feature
    - Find event-driven architecture patterns if applicable
    - Investigate caching strategies and data consistency patterns
@@ -316,6 +316,6 @@ Given the implementation details provided as an argument, execute this enhanced 
 - Progress tracking is updated in real-time
 - User-provided arguments are incorporated as Technical Context: $ARGUMENTS
 - All artifacts are version-controlled and timestamped
-- Research prioritizes information from 2024-2025
+- Research prioritizes the most current information available through MCP servers
 - Generated artifacts are immediately actionable by development teams
 - Consider both technical excellence and business value in all recommendations

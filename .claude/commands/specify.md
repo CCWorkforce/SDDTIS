@@ -99,7 +99,7 @@ Given the feature description provided as an argument, execute this enhanced wor
 ## Phase 4: Research Latest Best Practices
 
 7. **Research Current Technologies**: Using `mcp__tavily-mcp__tavily-search` tool:
-   - Search for latest best practices related to the feature type (e.g., "2025 best practices for [feature type]")
+   - Search for latest best practices related to the feature type (e.g., "latest best practices for [feature type]")
    - Find recent breaking changes in relevant frameworks/libraries
    - Identify modern implementation patterns and architectures
    - Look for security considerations and performance optimizations
@@ -136,8 +136,8 @@ Given the feature description provided as an argument, execute this enhanced wor
 
 11. **Validate Specification**:
    - Ensure all template sections are filled with meaningful content
-   - Check that technical details are current (using 2025 best practices)
-   - Verify that code examples are syntactically correct
+   - Check that technical details are current (using latest best practices gathered from MCP servers)
+   - Verify that code examples are syntactically correct and current
    - Confirm that all referenced libraries/frameworks are compatible
    - Validate that the specification is actionable and unambiguous
    - **IMPORTANT**: Verify all clarifications have been incorporated
@@ -183,7 +183,7 @@ Given the feature description provided as an argument, execute this enhanced wor
 ## Notes
 
 - The script creates and checks out the new branch before specification writing
-- All research should prioritize recent information (2024-2025)
+- All research should prioritize the most recent information available through MCP servers
 - Specification should be developer-friendly and immediately actionable
 - Consider both technical and business perspectives in the specification
 - Include fallback strategies for critical components
